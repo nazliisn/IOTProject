@@ -1,15 +1,17 @@
 import React from 'react';
-import {SafeAreaView, TouchableOpacity} from 'react-native';
+import {TouchableOpacity, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './ControlButton.style';
 
-function ControlButton({onButton, iconName}) {
+function ControlButton({onButton, iconName, text}) {
   return (
-    <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={onButton}>
-        <Icon name={iconName} size={60} color={'white'}></Icon>
-      </TouchableOpacity>
-    </SafeAreaView>
+    <TouchableOpacity style={styles.container} onPress={onButton}>
+      {iconName ? (
+        <Icon name={iconName} size={60} color={'#faf0ef'}></Icon>
+      ) : (
+        <Text style={styles.title}>AUTO</Text>
+      )}
+    </TouchableOpacity>
   );
 }
 export default ControlButton;
